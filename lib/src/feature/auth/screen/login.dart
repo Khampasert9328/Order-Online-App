@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:order_online_app/src/constants/set_color.dart';
-import 'package:order_online_app/src/feature/auth/componant/button/button.dart';
-import 'package:order_online_app/src/feature/auth/componant/button/facebook_button.dart';
-import 'package:order_online_app/src/feature/auth/componant/button/google_button.dart';
-import 'package:order_online_app/src/feature/auth/componant/textfiled/text_filed.dart';
+import 'package:order_online_app/src/feature/auth/component/button/button.dart';
+import 'package:order_online_app/src/feature/auth/component/button/facebook_button.dart';
+import 'package:order_online_app/src/feature/auth/component/button/google_button.dart';
+import 'package:order_online_app/src/feature/auth/component/textfiled/text_filed.dart';
 import 'package:order_online_app/src/feature/auth/screen/register.dart';
 import 'package:order_online_app/src/feature/auth/service/auth.dart';
 
@@ -27,7 +27,6 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: AppColor.appWhite,
-        
         centerTitle: true,
         leading: IconButton(
           onPressed: () {
@@ -120,9 +119,9 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       BottomWidget(
                         title: 'ເຂົ້າສູ່ລະບົບ',
-                        onTap: () {
+                        onTap: () async {
                           if (_form.currentState!.validate()) {
-                            AuthService().login(email.text, password.text, context);
+                            await AuthService().login(email.text, password.text, context);
                           }
                         },
                       ),

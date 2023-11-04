@@ -5,8 +5,8 @@ class AddressProvider extends ChangeNotifier {
   String? get province => _province;
   String? get city => _city;
   String? get village => _village;
-
-
+  int? _registerid;
+  int? get registerid => _registerid;
 
   set proName(String? val) {
     _province = val;
@@ -23,8 +23,7 @@ class AddressProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-
-   /// Province that user live in
+  /// Province that user live in
   setProvince(String? province) {
     _province = province;
     notifyListeners();
@@ -39,6 +38,11 @@ class AddressProvider extends ChangeNotifier {
   /// Village that user live in
   setVillage(String? village) {
     _village = village;
+    notifyListeners();
+  }
+
+  setRegisterid(int? val){
+    _registerid = val;
     notifyListeners();
   }
 }

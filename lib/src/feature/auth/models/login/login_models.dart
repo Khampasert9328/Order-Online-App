@@ -9,7 +9,7 @@ LoginModels loginModelsFromJson(String str) => LoginModels.fromJson(json.decode(
 String loginModelsToJson(LoginModels data) => json.encode(data.toJson());
 
 class LoginModels {
-    String success;
+    bool success;
     String email;
     String message;
     String token;
@@ -20,19 +20,6 @@ class LoginModels {
         required this.message,
         required this.token,
     });
-
-    LoginModels copyWith({
-        String? success,
-        String? email,
-        String? message,
-        String? token,
-    }) => 
-        LoginModels(
-            success: success ?? this.success,
-            email: email ?? this.email,
-            message: message ?? this.message,
-            token: token ?? this.token,
-        );
 
     factory LoginModels.fromJson(Map<String, dynamic> json) => LoginModels(
         success: json["success"],

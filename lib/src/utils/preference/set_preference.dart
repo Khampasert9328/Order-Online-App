@@ -13,4 +13,9 @@ class SetPreference {
     SharedPreferences pre = await SharedPreferences.getInstance();
     return pre.getString(token);
   }
+
+  Future<void> clearToken() async {
+    SharedPreferences pre = await SharedPreferences.getInstance();
+    await pre.clear();
+  }
 }

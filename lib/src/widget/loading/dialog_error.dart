@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
+import 'package:order_online_app/src/constants/image_path.dart';
 
 class AlertDialogWidget extends StatelessWidget {
   final String title;
-  final String icons;
   final String titleBtn;
   final VoidCallback onPress;
   final Color color;
@@ -11,7 +12,6 @@ class AlertDialogWidget extends StatelessWidget {
   const AlertDialogWidget(
       {Key? key,
       required this.title,
-      required this.icons,
       required this.titleBtn,
       required this.onPress,
       required this.color})
@@ -29,7 +29,10 @@ class AlertDialogWidget extends StatelessWidget {
         child: ListView(shrinkWrap: true, children: [
           Column(
             children: [
-              SvgPicture.asset(icons, width: 80, height: 80),
+              Lottie.network(
+              AppImage.loadingerror,
+              height: 120.h,
+            ),
               const SizedBox(
                 height: 10,
               ),
