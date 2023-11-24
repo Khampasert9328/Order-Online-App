@@ -121,7 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                         title: 'ເຂົ້າສູ່ລະບົບ',
                         onTap: () async {
                           if (_form.currentState!.validate()) {
-                            await AuthService().login(email.text, password.text, context);
+                            await AuthService().login(email.text.trim(), password.text.trim(), context);
                           }
                         },
                       ),

@@ -15,7 +15,6 @@ import 'package:order_online_app/src/feature/auth/models/province/province_model
 import 'package:order_online_app/src/feature/auth/models/village/village_models.dart';
 import 'package:order_online_app/src/feature/auth/provider/set_provider_address.dart';
 import 'package:order_online_app/src/feature/auth/screen/login.dart';
-import 'package:order_online_app/src/feature/auth/screen/otp/screen/main_otp.dart';
 import 'package:order_online_app/src/feature/auth/service/auth.dart';
 import 'package:order_online_app/src/feature/auth/utils/set_image.dart';
 import 'package:order_online_app/src/widget/dropdown/dropdown_widget.dart';

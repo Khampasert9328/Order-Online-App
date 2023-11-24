@@ -1,11 +1,12 @@
 // ignore_for_file: avoid_unnecessary_containers
 
-import 'dart:convert';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
+import 'package:order_online_app/src/constants/image_path.dart';
 import 'package:order_online_app/src/constants/set_color.dart';
+import 'package:order_online_app/src/feature/auth/provider/version_provider.dart';
 import 'package:order_online_app/src/feature/provider/provicer_service.dart';
 import 'package:provider/provider.dart';
 
@@ -21,6 +22,7 @@ class _BodyProfileState extends State<BodyProfile> {
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       context.read<ProviderService>().getProfilePro();
+      // context.read<VersionProvider>().getVersion();
     });
     super.initState();
   }
@@ -29,8 +31,12 @@ class _BodyProfileState extends State<BodyProfile> {
   Widget build(BuildContext context) {
     return Consumer<ProviderService>(builder: (ctn, model, children) {
       if (model.profile == null) {
-        return const Center(
-          child: CircularProgressIndicator(),
+        return Center(
+          child: Lottie.asset(
+            AppImage.loadingpage,
+            height: 100.h,
+            width: 100.w,
+          ),
         );
       }
       return ListView.builder(
@@ -42,7 +48,7 @@ class _BodyProfileState extends State<BodyProfile> {
                 return CachedNetworkImageProvider(imageUrl);
               } else {
                 // Return a placeholder image or a default image in case 'imageUrl' is null or empty.
-                return AssetImage('assets/images/person.png');
+                return const AssetImage('assets/images/people.png');
               }
             }
 
@@ -118,7 +124,7 @@ class _BodyProfileState extends State<BodyProfile> {
                           TextField(
                             readOnly: true,
                             decoration: InputDecoration(
-                                prefixIcon: Icon(Icons.person_outline_outlined),
+                                prefixIcon: Icon(Icons.people_alt_outlined),
                                 border: InputBorder.none,
                                 hintText: 'ນາມສະກຸນ: ${data?.lname}'),
                           ),
@@ -129,7 +135,7 @@ class _BodyProfileState extends State<BodyProfile> {
                           TextField(
                             readOnly: true,
                             decoration: InputDecoration(
-                                prefixIcon: Icon(Icons.person_outline_outlined),
+                                prefixIcon: Icon(Icons.email_outlined),
                                 border: InputBorder.none,
                                 hintText: 'ອີເມລ: ${data?.email}'),
                           ),
@@ -140,7 +146,7 @@ class _BodyProfileState extends State<BodyProfile> {
                           TextField(
                             readOnly: true,
                             decoration: InputDecoration(
-                                prefixIcon: Icon(Icons.person_outline_outlined),
+                                prefixIcon: Icon(Icons.phone_callback_outlined),
                                 border: InputBorder.none,
                                 hintText: 'ເບີໂທ: ${data?.phone}'),
                           ),
@@ -148,21 +154,23 @@ class _BodyProfileState extends State<BodyProfile> {
                             padding: EdgeInsets.only(left: 45),
                             child: Divider(),
                           ),
-                          const TextField(
-                            readOnly: true,
-                            decoration: InputDecoration(
-                                prefixIcon: Icon(Icons.person_outline_outlined),
-                                border: InputBorder.none,
-                                hintText: 'ຊື່ ແລະນາມສະກຸນ'),
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.only(left: 45),
-                            child: Divider(),
-                          )
+                          // const TextField(
+                          //   readOnly: true,
+                          //   decoration: InputDecoration(
+                          //       prefixIcon: Icon(Icons.person_outline_outlined),
+                          //       border: InputBorder.none,
+                          //       hintText: 'ຊື່ ແລະນາມສະກຸນ'),
+                          // ),
+                          // const Padding(
+                          //   padding: EdgeInsets.only(left: 45),
+                          //   child: Divider(),
+                          // )
                         ],
                       ),
                     ),
-                  )
+                  ),
+              
+               
                 ],
               ),
             );
