@@ -35,7 +35,8 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     SetPreference().getToken().then((value) async {
       print(value);
-      final idregis = Provider.of<AddressProvider>(context, listen: false).registerid;
+      final idregis =
+          Provider.of<AddressProvider>(context, listen: false).registerid;
       print("id===$idregis");
     });
     super.initState();
@@ -53,7 +54,10 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {
               LogOutDialog().showLogOutDialog(context);
             },
-            icon: Icon(Icons.logout_outlined),
+            icon: Icon(
+              Icons.logout_outlined,
+              color: Colors.white,
+            ),
           ),
         ],
       ),
