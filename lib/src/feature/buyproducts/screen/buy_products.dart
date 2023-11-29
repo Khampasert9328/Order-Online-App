@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -248,7 +246,7 @@ class _BuyProductsState extends State<BuyProducts> {
                                   ),
                                 ],
                               ),
-                              Icon(Icons.shopping_cart_outlined)
+                              const Icon(Icons.shopping_cart_outlined)
                             ],
                           ),
                         )
