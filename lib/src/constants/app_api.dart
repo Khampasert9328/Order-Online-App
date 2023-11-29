@@ -11,4 +11,8 @@ class APIService {
   //imageCover
   static const String getimageCover = '${domain}coverimg';
 
+  //category
+  static const String getCategory = '${domain}category';
+
+
 }

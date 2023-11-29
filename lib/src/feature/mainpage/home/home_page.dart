@@ -3,13 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:order_online_app/src/constants/set_color.dart';
-import 'package:order_online_app/src/feature/auth/provider/set_provider_address.dart';
 import 'package:order_online_app/src/feature/buyproducts/screen/buy_products.dart';
 import 'package:order_online_app/src/feature/mainpage/main_page.dart';
+import 'package:order_online_app/src/feature/orders/screen/main_order.dart';
 import 'package:order_online_app/src/feature/profile/screen/profile.dart';
-import 'package:order_online_app/src/utils/preference/set_preference.dart';
 import 'package:order_online_app/src/widget/dialog/logout.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   int selecindex;
@@ -32,17 +30,6 @@ class _HomePageState extends State<HomePage> {
   ];
 
   @override
-  void initState() {
-    SetPreference().getToken().then((value) async {
-      print(value);
-      final idregis =
-          Provider.of<AddressProvider>(context, listen: false).registerid;
-      print("id===$idregis");
-    });
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -52,10 +39,10 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             onPressed: () {
-              LogOutDialog().showLogOutDialog(context);
+              Navigator.push(context, MaterialPageRoute(builder: (_)=>MainOrder()));
             },
             icon: Icon(
-              Icons.logout_outlined,
+              Icons.shopping_cart_outlined,
               color: Colors.white,
             ),
           ),

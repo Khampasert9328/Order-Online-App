@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:order_online_app/src/feature/buyproducts/models/category/category_models.dart';
+import 'package:order_online_app/src/feature/buyproducts/service/get_category_service.dart';
 import 'package:order_online_app/src/feature/mainpage/imagecover/models/image_cover.dart';
 import 'package:order_online_app/src/feature/mainpage/imagecover/service/get_image_cover_service.dart';
 import 'package:order_online_app/src/feature/profile/models/profile_models.dart';
@@ -11,6 +13,9 @@ class ProviderService extends ChangeNotifier {
   ImageCoverModels? get imgCover => _imgCover;
   ProfileModels? _profile;
   ProfileModels? get profile => _profile;
+
+  GetCategoryModels? _categoryModels;
+  GetCategoryModels? get category => _categoryModels;
 
   Future<void> getImgCoverPro(context) async {
     if (_imgCover == null) {
@@ -29,5 +34,14 @@ class ProviderService extends ChangeNotifier {
       _isload = false;
     }
     notifyListeners();
+  }
+
+  Future<void> getCategoryPro() async {
+    if (_categoryModels == null) {
+      _isload = true;
+      _categoryModels = await CategoryService().getCategory();
+      _isload = false;
+      notifyListeners();
+    }
   }
 }

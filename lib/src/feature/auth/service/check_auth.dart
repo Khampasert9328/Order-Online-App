@@ -12,13 +12,16 @@ class CheckAuth extends StatefulWidget {
 
 class _CheckAuthState extends State<CheckAuth> {
   void navigator(Widget child) {
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => child));
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (_) => child));
   }
 
   void checkLogin() async {
     String? token = await SetPreference().getToken();
     if (token != null) {
-      navigator( HomePage(selecindex: 0,));
+      navigator(HomePage(
+        selecindex: 0,
+      ));
     } else {
       navigator(const MainPageAuth());
     }
